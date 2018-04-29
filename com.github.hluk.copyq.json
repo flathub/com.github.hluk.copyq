@@ -21,8 +21,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/hluk/CopyQ.git",
-                    "tag": "v3.3.1",
-                    "commit": "e41dc62beeacbda2d46dd23e4c298ada80a57617"
+                    "tag": "v3.4.0",
+                    "commit": "25a8d737bbce8df4ddf9ba0b920fd019fbaf6210"
                 }
             ],
             "config-opts": [
