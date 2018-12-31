@@ -10,7 +10,8 @@
         "--socket=wayland",
         "--talk-name=org.kde.StatusNotifierWatcher",
         "--share=ipc",
-        "--device=dri"
+        "--device=dri",
+        "--filesystem=xdg-config/autostart:create"
     ],
 
     "modules": [
@@ -21,13 +22,14 @@
                 {
                     "type": "git",
                     "url": "https://github.com/hluk/CopyQ.git",
-                    "tag": "v3.7.1",
-                    "commit": "5ee1fa63cec1ddb901b22f1fb2a9456197aa4143"
+                    "tag": "v3.7.2",
+                    "commit": "5fe265306d3cd037667f3656c260a53802b0cd42"
                 }
             ],
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
-                "-DICON_NAME=com.github.hluk.copyq"
+                "-DICON_NAME=com.github.hluk.copyq",
+                "-DCOPYQ_AUTOSTART_COMMAND=flatpak run com.github.hluk.copyq"
             ]
         }
     ]
