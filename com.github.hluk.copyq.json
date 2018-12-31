@@ -10,7 +10,8 @@
         "--socket=wayland",
         "--talk-name=org.kde.StatusNotifierWatcher",
         "--share=ipc",
-        "--device=dri"
+        "--device=dri",
+        "--filesystem=xdg-config/autostart:create"
     ],
 
     "modules": [
@@ -27,7 +28,8 @@
             ],
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
-                "-DICON_NAME=com.github.hluk.copyq"
+                "-DICON_NAME=com.github.hluk.copyq",
+                "-DCOPYQ_AUTOSTART_COMMAND=flatpak run com.github.hluk.copyq"
             ]
         }
     ]
