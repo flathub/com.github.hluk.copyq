@@ -22,8 +22,12 @@
                 {
                     "type": "git",
                     "url": "https://github.com/hluk/CopyQ.git",
-                    "tag": "v3.8.0",
-                    "commit": "b4cc07f9991413c0e554f0ad03e74674fc9e8db2"
+                    "tag": "v3.9.0",
+                    "commit": "93520a338d7825d50f2b0af2e067d9edb369b98c"
+                },
+                {
+                    "type": "patch",
+                    "path": "0001-Add-required-tag-for-flatpak.patch"
                 }
             ],
             "config-opts": [
