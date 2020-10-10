@@ -9,6 +9,7 @@
         "--socket=x11",
         "--socket=wayland",
         "--talk-name=org.kde.StatusNotifierWatcher",
+        "--own-name=org.kde.*",
         "--share=ipc",
         "--device=dri",
         "--filesystem=xdg-config/autostart:create"
