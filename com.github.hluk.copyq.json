@@ -1,7 +1,7 @@
 {
     "app-id": "com.github.hluk.copyq",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.14",
+    "runtime-version": "5.15",
     "sdk": "org.kde.Sdk",
     "command": "copyq",
 
@@ -22,8 +22,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/hluk/CopyQ.git",
-                    "tag": "v3.13.0",
-                    "commit": "2fdf68195f52fe8fd3ecad1cf61657a87c01f0ba"
+                    "tag": "v4.0.0",
+                    "commit": "fefcd60e88d61362a72286f011c9958f9f745a36"
                 }
             ],
             "config-opts": [
