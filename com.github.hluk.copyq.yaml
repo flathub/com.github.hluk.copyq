@@ -1,7 +1,7 @@
 ---
 app-id: com.github.hluk.copyq
 runtime: org.kde.Platform
-runtime-version: 5.15-22.08
+runtime-version: '6.6'
 sdk: org.kde.Sdk
 command: copyq
 
@@ -14,6 +14,15 @@ finish-args:
   - --device=dri
 
 modules:
+  - name: qt6-wayland
+    buildsystem: cmake-ninja
+    cleanup-platform:
+      - /bin
+    sources:
+      - type: archive
+        url: https://download.qt.io/official_releases/qt/6.6/6.6.1/submodules/qtwayland-everywhere-src-6.6.1.tar.xz
+        sha256: 66cc2d632dc07fc6cc4e35247f48b7c1753276ccbf86e86d7b24d799725568b1
+
   - buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
@@ -21,9 +30,14 @@ modules:
       # The flatpak app should not handle autostart itself:
       # https://github.com/flathub/flatpak-builder-lint/issues/87
       - -DCOPYQ_AUTOSTART=OFF
+      - -DWITH_QT6=1
+      - -DQT_MAJOR_VERSION=6
+      - -DCOPYQ_AUTOSTART_COMMAND=flatpak run com.github.hluk.copyq
+      - -DQtWaylandScanner_EXECUTABLE=/app/libexec/qtwaylandscanner
+      # FIXME: Native notifications require KDE Frameworks 6
+      - -DWITH_NATIVE_NOTIFICATIONS=0
     name: copyq
     sources:
-      - commit: 976aaa109990767764b2fc11827a0526ee1fb3df
-        tag: v7.1.0
+      - commit: c465dad24e01facb8851499878ef8f148c402344
         type: git
         url: https://github.com/hluk/CopyQ.git
