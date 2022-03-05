@@ -14,6 +14,9 @@ finish-args:
   - --device=dri
   - --filesystem=xdg-config/autostart:create
 
+  # Support for encryption with GPG
+  - --filesystem=xdg-run/gnupg:ro
+
 modules:
   - buildsystem: cmake-ninja
     config-opts:
@@ -26,3 +29,28 @@ modules:
         tag: v6.0.1
         type: git
         url: https://github.com/hluk/CopyQ.git
+
+  - name: pinentry
+    cleanup:
+      - /include
+      - /lib/debug
+      - /share/info
+      - '*.a'
+      - '*.la'
+    config-opts:
+      - --disable-fallback-curses
+      - --disable-ncurses
+      - --disable-pinentry-curses
+      - --disable-pinentry-emacs
+      - --disable-pinentry-fltk
+      - --disable-pinentry-gtk2
+      - --enable-pinentry-qt5
+      - --disable-pinentry-tqt
+      - --disable-pinentry-tty
+      - --enable-libsecret=no
+      - --disable-pinentry-gnome3
+      - --without-libcap
+    sources:
+      - type: archive
+        sha256: cd12a064013ed18e2ee8475e669b9f58db1b225a0144debdb85a68cecddba57f
+        url: https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.1.tar.bz2
