@@ -8,6 +8,7 @@ command: copyq
 finish-args:
   - --socket=x11
   - --socket=wayland
+  - --socket=gpg-agent
   - --talk-name=org.kde.StatusNotifierWatcher
   - --own-name=org.kde.*
   - --share=ipc
