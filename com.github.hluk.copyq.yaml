@@ -21,7 +21,7 @@ modules:
       - -DCOPYQ_AUTOSTART_COMMAND=flatpak run com.github.hluk.copyq
     name: copyq
     sources:
-      - commit: 1d5c9618fd1124de531bb375d2cdda4dc8bfe9ba
-        tag: v7.0.0
+      - commit: 976aaa109990767764b2fc11827a0526ee1fb3df
+        tag: v7.1.0
         type: git
         url: https://github.com/hluk/CopyQ.git
