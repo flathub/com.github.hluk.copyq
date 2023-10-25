@@ -18,7 +18,9 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DICON_NAME=com.github.hluk.copyq
-      - -DCOPYQ_AUTOSTART_COMMAND=flatpak run com.github.hluk.copyq
+      # The flatpak app should not handle autostart itself:
+      # https://github.com/flathub/flatpak-builder-lint/issues/87
+      - -DCOPYQ_AUTOSTART=OFF
     name: copyq
     sources:
       - commit: 976aaa109990767764b2fc11827a0526ee1fb3df
