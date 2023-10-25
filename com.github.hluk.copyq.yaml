@@ -12,6 +12,7 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --share=ipc
   - --device=dri
+  - --filesystem=xdg-config/autostart:create
 
 modules:
   - buildsystem: cmake-ninja
