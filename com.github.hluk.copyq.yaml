@@ -25,7 +25,7 @@ modules:
       - -DWITH_QT6=1
     name: copyq
     sources:
-      - commit: dc155ef9a5635a1e02e09205cf00339eee0b0f6d
-        tag: v9.0.0
+      - commit: 4aab252568347dbea3e8d7929d92ae2b7308aef2
+        tag: v9.1.0
         type: git
         url: https://github.com/hluk/CopyQ.git
