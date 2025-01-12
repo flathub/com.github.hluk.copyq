@@ -1,7 +1,6 @@
----
 app-id: com.github.hluk.copyq
 runtime: org.kde.Platform
-runtime-version: 6.7
+runtime-version: 6.8
 sdk: org.kde.Sdk
 command: copyq
 
@@ -14,7 +13,8 @@ finish-args:
   - --device=dri
 
 modules:
-  - buildsystem: cmake-ninja
+  - name: copyq
+    buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DICON_NAME=com.github.hluk.copyq
@@ -23,9 +23,11 @@ modules:
       - -DCOPYQ_AUTOSTART=OFF
       - -DCOPYQ_AUTOSTART_COMMAND=flatpak run com.github.hluk.copyq
       - -DWITH_QT6=1
-    name: copyq
     sources:
-      - commit: 4aab252568347dbea3e8d7929d92ae2b7308aef2
-        tag: v9.1.0
-        type: git
+      - type: git
         url: https://github.com/hluk/CopyQ.git
+        tag: v9.1.0
+        commit: 4aab252568347dbea3e8d7929d92ae2b7308aef2
+        x-checker-data:
+          type: git
+          tag-pattern: v([\d.]+)
