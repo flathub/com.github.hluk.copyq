@@ -30,4 +30,4 @@ modules:
         commit: 4aab252568347dbea3e8d7929d92ae2b7308aef2
         x-checker-data:
           type: git
-          tag-pattern: v([\d.]+)
+          tag-pattern: ^v(\d\.\d\.\d)$'
