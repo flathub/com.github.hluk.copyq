@@ -1,6 +1,6 @@
 app-id: com.github.hluk.copyq
 runtime: org.kde.Platform
-runtime-version: 6.8
+runtime-version: 6.9
 sdk: org.kde.Sdk
 command: copyq
 
@@ -26,8 +26,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/hluk/CopyQ.git
-        tag: v10.0.0
-        commit: f25a022e6e3f47353c46923de48a36e2d466c5c3
+        tag: v11.0.0
+        commit: 35b5bbb103669ce610e6367cbd7fcfdb9c300cfb
         x-checker-data:
           type: git
           tag-pattern: '^v(\d+\.\d+\.\d+)$'
