@@ -8,11 +8,57 @@ finish-args:
   - --socket=x11
   - --socket=wayland
   - --socket=gpg-agent
+  - --talk-name=org.freedesktop.secrets
   - --talk-name=org.kde.StatusNotifierWatcher
   - --share=ipc
   - --device=dri
+  - --socket=pulseaudio
 
 modules:
+  - name: qca-qt6
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_WITH_QT6=ON
+      - -DBUILD_TESTS=OFF
+      - -DBUILD_TOOLS=OFF
+      - -DBUILD_PLUGINS=ossl
+    sources:
+      - type: git
+        url: https://invent.kde.org/libraries/qca.git
+        tag: v2.3.10
+        commit: df5171e3c4baf346581f15af5a040e61b166a332
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+  - name: qt6keychain
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_WITH_QT6=ON
+      - -DBUILD_TRANSLATIONS=OFF
+      - -DBUILD_TEST_APPLICATION=OFF
+    sources:
+      - type: git
+        url: https://github.com/frankosterfeld/qtkeychain.git
+        tag: 0.15.0
+        commit: ad7344c45a86a4f66cbafc4b081b5f7b876cb0b7
+        x-checker-data:
+          type: git
+          tag-pattern: ^(\d+\.\d+\.\d+)$
+  - name: miniaudio
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 miniaudio.h ${FLATPAK_DEST}/include/miniaudio.h
+    sources:
+      - type: git
+        url: https://github.com/mackron/miniaudio.git
+        tag: "0.11.25"
+        commit: 9634bedb5b5a2ca38c1ee7108a9358a4e233f14d
+        x-checker-data:
+          type: git
+          tag-pattern: ^(\d+\.\d+\.\d+)$
+
   - name: copyq
     buildsystem: cmake-ninja
     config-opts:
@@ -22,12 +68,15 @@ modules:
       # https://github.com/flathub/flatpak-builder-lint/issues/87
       - -DCOPYQ_AUTOSTART=OFF
       - -DCOPYQ_AUTOSTART_COMMAND=flatpak run com.github.hluk.copyq
+      - -DWITH_QCA_ENCRYPTION=ON
+      - -DWITH_KEYCHAIN=ON
       - -DWITH_QT6=1
+      - -DMINIAUDIO_INCLUDE_DIR=/app/include
     sources:
       - type: git
         url: https://github.com/hluk/CopyQ.git
-        #tag: v13.0.0
-        commit: d098725434d5f7a7019ac06332bc2121f6c6f8d7
+        tag: v14.0.0
+        commit: d935d5216e0cdb553e8e80c4473bc75802a78b3b
         x-checker-data:
           type: git
           tag-pattern: '^v(\d+\.\d+\.\d+)$'
