@@ -14,6 +14,13 @@ finish-args:
   - --device=dri
   - --socket=pulseaudio
 
+cleanup:
+  - /include
+  - /lib/cmake
+  - /mkspecs
+  - /share/bash-completion
+  - /share/man
+
 modules:
   - name: qca-qt6
     buildsystem: cmake-ninja
