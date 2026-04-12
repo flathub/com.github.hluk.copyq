@@ -75,8 +75,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/hluk/CopyQ.git
-        tag: v14.0.0
-        commit: d935d5216e0cdb553e8e80c4473bc75802a78b3b
+        tag: v15.0.0
+        commit: 7ef381754c2025b9815f7edd96fe10a110dd4416
         x-checker-data:
           type: git
           tag-pattern: '^v(\d+\.\d+\.\d+)$'
