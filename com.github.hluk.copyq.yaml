@@ -48,8 +48,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/frankosterfeld/qtkeychain.git
-        tag: 0.17.0
-        commit: 875f77d9f61bd97fd84cca47ce3bc71186dfbd09
+        tag: 0.18.0
+        commit: e86bc3cbb50b172be61ed857803a372412b6ad85
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+\.\d+)$
@@ -60,8 +60,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mackron/miniaudio.git
-        tag: 0.11.25
-        commit: 9634bedb5b5a2ca38c1ee7108a9358a4e233f14d
+        tag: 0.11.26
+        commit: 877ea4a7c2601c7b0f2a44e83dfac42e6470fea6
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+\.\d+)$
